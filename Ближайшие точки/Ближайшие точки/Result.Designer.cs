@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.minDist = new System.Windows.Forms.TextBox();
+            this.ResPoints = new System.Windows.Forms.TextBox();
+            this.ResNumbPoints = new System.Windows.Forms.TextBox();
+            this.SavePoints = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -67,48 +67,52 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Точки:";
             // 
-            // textBox2
+            // minDist
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(137, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 26);
-            this.textBox2.TabIndex = 4;
+            this.minDist.Enabled = false;
+            this.minDist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.minDist.Location = new System.Drawing.Point(137, 24);
+            this.minDist.Name = "minDist";
+            this.minDist.Size = new System.Drawing.Size(155, 26);
+            this.minDist.TabIndex = 4;
             // 
-            // textBox4
+            // ResPoints
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(137, 68);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(155, 26);
-            this.textBox4.TabIndex = 6;
+            this.ResPoints.Enabled = false;
+            this.ResPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ResPoints.Location = new System.Drawing.Point(137, 68);
+            this.ResPoints.Name = "ResPoints";
+            this.ResPoints.Size = new System.Drawing.Size(155, 26);
+            this.ResPoints.TabIndex = 6;
             // 
-            // textBox1
+            // ResNumbPoints
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(137, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 26);
-            this.textBox1.TabIndex = 7;
+            this.ResNumbPoints.Enabled = false;
+            this.ResNumbPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ResNumbPoints.Location = new System.Drawing.Point(137, 112);
+            this.ResNumbPoints.Name = "ResNumbPoints";
+            this.ResNumbPoints.Size = new System.Drawing.Size(155, 26);
+            this.ResNumbPoints.TabIndex = 7;
             // 
-            // button1
+            // SavePoints
             // 
-            this.button1.Location = new System.Drawing.Point(306, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 49);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Сохранить введенные\r\n точки";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SavePoints.Location = new System.Drawing.Point(306, 58);
+            this.SavePoints.Name = "SavePoints";
+            this.SavePoints.Size = new System.Drawing.Size(75, 49);
+            this.SavePoints.TabIndex = 8;
+            this.SavePoints.Text = "Сохранить введенные\r\n точки";
+            this.SavePoints.UseVisualStyleBackColor = true;
+            this.SavePoints.Click += new System.EventHandler(this.SavePoints_Click);
             // 
             // Result
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 155);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.SavePoints);
+            this.Controls.Add(this.ResNumbPoints);
+            this.Controls.Add(this.ResPoints);
+            this.Controls.Add(this.minDist);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -124,9 +128,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox minDist;
+        private System.Windows.Forms.TextBox ResPoints;
+        private System.Windows.Forms.TextBox ResNumbPoints;
+        private System.Windows.Forms.Button SavePoints;
     }
 }

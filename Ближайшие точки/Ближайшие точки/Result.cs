@@ -16,5 +16,10 @@ namespace Ближайшие_точки
         {
             InitializeComponent();
         }
+
+        private void SavePoints_Click(object sender, EventArgs e)//сохранение введенных точек в файл
+        {
+
+        }
     }
 }
