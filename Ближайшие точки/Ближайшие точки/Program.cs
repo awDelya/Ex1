@@ -16,7 +16,7 @@ namespace Ближайшие_точки
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Add());
         }
     }
 }
