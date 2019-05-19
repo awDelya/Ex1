@@ -22,6 +22,8 @@ namespace Ближайшие_точки
             InitializeComponent();
             AddNumber.MaxLength = 6;//ограничения на кол-во символов в числе
             openFileDialog1.Filter = "File Input(*.txt)|*.txt";//расширение для файла
+            Icon icon = new Icon("dist.ico");
+            this.Icon = icon;
         }
 
         private void AddOldData_Click(object sender, EventArgs e)//добавление существующих точек из файлов
@@ -61,7 +63,7 @@ namespace Ближайшие_точки
                 }
                 catch
                 { AddNumber.Text = ""; AddPoints.Text = ""; MessageBox.Show("Данные файла не подходят под условия задачи."); }
-                if (ListPoint.Count == Convert.ToInt32(AddNumber.Text)) return;
+                if (ListPoint.Count == Convert.ToInt32(AddNumber.Text)) { AddPoints.Enabled = true; return; }
                 else
                 { Res.Enabled = false; MessageBox.Show("Количество точек не совадает с указанным значением."); }
             }

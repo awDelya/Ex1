@@ -22,6 +22,9 @@ namespace Ближайшие_точки
         {
             add = znach;
             InitializeComponent();
+            Icon icon = new Icon("dist.ico");
+            this.Icon = icon;
+            saveFileDialog1.Filter = "File Output(*.txt)|*.txt";//расширение для файла
             WhereFile = add.WhereFile;
             ListPoint = add.NumbersList;
             min = add.min;
@@ -34,9 +37,32 @@ namespace Ближайшие_точки
 
         private void SavePoints_Click(object sender, EventArgs e)//сохранение введенных точек в файл
         {
-            using (StreamReader file = new StreamReader(WhereFile))//открытие выбранного файла для чтения
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel) return;//если нажали в окне сохранения файла "Отмена"
+            WhereFile = saveFileDialog1.FileName;//запись пути выбранного файла
+            var array = WhereFile.Split('\\');
+            string input, output, way="", name="";
+            for(int i=0;i<array.Length-1;i++)
+                way = way + array[i] + "\\";
+            name = array[array.Length-1];
+            name = name.TrimEnd('t');
+            name = name.TrimEnd('x');
+            name = name.TrimEnd('t');
+            name = name.TrimEnd('.');
+            input = way + name + "_Input.txt";
+            output = way + name + "_Output.txt";
+            using (StreamWriter file = new StreamWriter(output))
             {
-
+                file.WriteLine(min);
+                string temp = Convert.ToString(ListPoint.IndexOf(x) + 1) + " " + Convert.ToString(ListPoint.IndexOf(y) + 1);
+                file.Write(temp);
+            }
+            using (StreamWriter file = new StreamWriter(input))
+            {
+                file.WriteLine(ListPoint.Count);
+                string temp = "";
+                for(int i=0; i<ListPoint.Count;i++)
+                    temp = temp + Convert.ToString(ListPoint.ElementAt(i))+" ";
+                file.Write(temp);
             }
         }
     }

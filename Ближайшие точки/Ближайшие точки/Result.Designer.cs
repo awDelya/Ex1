@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Result));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
             this.ResPoints = new System.Windows.Forms.TextBox();
             this.ResNumbPoints = new System.Windows.Forms.TextBox();
             this.SavePoints = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -96,11 +98,11 @@
             // 
             // SavePoints
             // 
-            this.SavePoints.Location = new System.Drawing.Point(306, 58);
+            this.SavePoints.Location = new System.Drawing.Point(312, 52);
             this.SavePoints.Name = "SavePoints";
-            this.SavePoints.Size = new System.Drawing.Size(75, 49);
+            this.SavePoints.Size = new System.Drawing.Size(75, 61);
             this.SavePoints.TabIndex = 8;
-            this.SavePoints.Text = "Сохранить введенные\r\n точки";
+            this.SavePoints.Text = "Сохранить введенные\r\n точки и результат";
             this.SavePoints.UseVisualStyleBackColor = true;
             this.SavePoints.Click += new System.EventHandler(this.SavePoints_Click);
             // 
@@ -108,6 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.NavajoWhite;
             this.ClientSize = new System.Drawing.Size(399, 155);
             this.Controls.Add(this.SavePoints);
             this.Controls.Add(this.ResNumbPoints);
@@ -116,6 +119,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Result";
             this.Text = "Результат";
             this.ResumeLayout(false);
@@ -132,5 +136,6 @@
         private System.Windows.Forms.TextBox ResPoints;
         private System.Windows.Forms.TextBox ResNumbPoints;
         private System.Windows.Forms.Button SavePoints;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
