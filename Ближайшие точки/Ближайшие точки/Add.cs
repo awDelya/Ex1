@@ -47,15 +47,23 @@ namespace Ближайшие_точки
                         for(int i=0;i<array.Length; i++)//перебор элементов для добавлеия в лист
                         {
                             int x = Convert.ToInt32(array[i]);
+                            if (x < 0)
+                                x = x * (-1);
                             ListPoint.Add(x);
                         }
                     }
+                    temp = "";
+                    for (int i = 0; i < ListPoint.Count; i++)
+                        temp = temp + " " + ListPoint[i];
+                    temp = temp.Trim();//Удаляет пробелы в начале и в конце строки
                     AddPoints.Text = temp;//вывод в форму
                     Res.Enabled = true;
                 }
                 catch
                 { AddNumber.Text = ""; AddPoints.Text = ""; MessageBox.Show("Данные файла не подходят под условия задачи."); }
-               
+                if (ListPoint.Count == Convert.ToInt32(AddNumber.Text)) return;
+                else
+                { Res.Enabled = false; MessageBox.Show("Количество точек не совадает с указанным значением."); }
             }
         }
 
@@ -77,23 +85,42 @@ namespace Ближайшие_точки
             if (AddNumber.Text.Length > 0 && AddPoints.Text.Length > 0)//проверка полей для кнопки показа результата
                 Res.Enabled = true;
             else Res.Enabled = false;
-            if (AddNumber.Text == "") AddNumber.Text = "2";
-            if (Convert.ToInt32(AddNumber.Text) < 2) AddNumber.Text = "2";
-            if (Convert.ToInt32(AddNumber.Text) > 100000) AddNumber.Text = "100000";
+            try
+            {
+                if (Convert.ToInt32(AddNumber.Text) < 2) AddNumber.Text = "2";
+                if (Convert.ToInt32(AddNumber.Text) > 100000) AddNumber.Text = "100000";
+                AddPoints.Enabled = true;
+                if (ListPoint.Count == Convert.ToInt32(AddNumber.Text)) Res.Enabled = true;
+                else
+                    Res.Enabled = false;
+            }
+            catch { AddPoints.Enabled = false; }
         }
 
         private void AddPoints_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar) && !(e.KeyChar.ToString()==" "))
+            if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar) && !(e.KeyChar.ToString() == " "))
                 e.Handled = true;
-            if (e.KeyChar.Equals((char)13)) Res.Focus();
+            if (e.KeyChar.Equals((char)13)) Res.Focus();            
         }
 
         private void AddPoints_KeyUp(object sender, KeyEventArgs e)
         {
-            if (AddNumber.Text.Length > 0 && AddPoints.Text.Length > 0)
-                Res.Enabled = true;
-            else Res.Enabled = false;
+            try
+            {
+                ListPoint.Clear();
+                string temp = AddPoints.Text;
+                var array = temp.Split(' ');//запись данных
+                for (int i = 0; i < array.Length; i++)//перебор элементов для добавлеия в лист
+                {
+                    int x = Convert.ToInt32(array[i]);
+                    ListPoint.Add(x);
+                }
+            }
+            catch { }
+            if (ListPoint.Count == Convert.ToInt32(AddNumber.Text)) Res.Enabled = true;
+            else
+                Res.Enabled = false;
         }
     }
 }

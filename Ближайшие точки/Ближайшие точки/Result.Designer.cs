@@ -69,28 +69,28 @@
             // 
             // minDist
             // 
-            this.minDist.Enabled = false;
             this.minDist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.minDist.Location = new System.Drawing.Point(137, 24);
             this.minDist.Name = "minDist";
+            this.minDist.ReadOnly = true;
             this.minDist.Size = new System.Drawing.Size(155, 26);
             this.minDist.TabIndex = 4;
             // 
             // ResPoints
             // 
-            this.ResPoints.Enabled = false;
             this.ResPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ResPoints.Location = new System.Drawing.Point(137, 68);
             this.ResPoints.Name = "ResPoints";
+            this.ResPoints.ReadOnly = true;
             this.ResPoints.Size = new System.Drawing.Size(155, 26);
             this.ResPoints.TabIndex = 6;
             // 
             // ResNumbPoints
             // 
-            this.ResNumbPoints.Enabled = false;
             this.ResNumbPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ResNumbPoints.Location = new System.Drawing.Point(137, 112);
             this.ResNumbPoints.Name = "ResNumbPoints";
+            this.ResNumbPoints.ReadOnly = true;
             this.ResNumbPoints.Size = new System.Drawing.Size(155, 26);
             this.ResNumbPoints.TabIndex = 7;
             // 
