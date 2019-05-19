@@ -14,7 +14,9 @@ namespace Ближайшие_точки
     public partial class Add : Form
     {
         public List<int> ListPoint = new List<int>();//для записи точек
+        public List<int> NumbersList = new List<int>();//для копии первого листа
         public string WhereFile = "";
+        public int min, x, y;
         public Add()//главная форма
         {
             InitializeComponent();
@@ -69,8 +71,31 @@ namespace Ближайшие_точки
 
         private void Res_Click(object sender, EventArgs e)//кнопка для показа результата
         {
-            Result forRes = new Result(this);
-            forRes.ShowDialog();
+            int tempDist = 0;
+            NumbersList = ListPoint;
+            ListPoint.Sort();
+            min = Int32.MaxValue;
+            for (int i = 0; i < ListPoint.Count; i++)
+            {
+                try
+                {
+                    tempDist = Math.Abs(ListPoint[i + 1] - ListPoint[i]);
+                }
+                catch { }
+                if (tempDist < min && tempDist != 0)
+                {
+                    min = tempDist;
+                    x = ListPoint[i];
+                    y = ListPoint[i + 1];
+                }
+            }
+            if (min == Int32.MaxValue)
+                MessageBox.Show("Все точки совпадают, минимальное расстояние равно 0!");
+            else
+            {
+                Result forRes = new Result(this);
+                forRes.ShowDialog();
+            }
         }
 
         private void AddNumber_KeyPress(object sender, KeyPressEventArgs e)//нажатие клавиши

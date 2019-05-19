@@ -15,11 +15,18 @@ namespace Ближайшие_точки
     {
         Add add;
         public string WhereFile = "";//путь для хранения файла
+        public int min, x, y;
+        public List<int> ListPoint = new List<int>();
 
         public Result(Add znach)
         {
             add = znach;
             InitializeComponent();
+            WhereFile = add.WhereFile;
+            ListPoint = add.ListPoint;
+            min = add.min;
+            x = add.x;
+            y = add.y;
         }
 
         private void SavePoints_Click(object sender, EventArgs e)//сохранение введенных точек в файл
