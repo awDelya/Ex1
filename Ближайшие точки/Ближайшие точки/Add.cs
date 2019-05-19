@@ -49,8 +49,6 @@ namespace Ближайшие_точки
                         for(int i=0;i<array.Length; i++)//перебор элементов для добавлеия в лист
                         {
                             int x = Convert.ToInt32(array[i]);
-                            if (x < 0)
-                                x = x * (-1);
                             ListPoint.Add(x);
                         }
                     }
@@ -72,7 +70,7 @@ namespace Ближайшие_точки
         private void Res_Click(object sender, EventArgs e)//кнопка для показа результата
         {
             int tempDist = 0;
-            NumbersList = ListPoint;
+            NumbersList = ListPoint.ToList();
             ListPoint.Sort();
             min = Int32.MaxValue;
             for (int i = 0; i < ListPoint.Count; i++)
@@ -124,7 +122,7 @@ namespace Ближайшие_точки
 
         private void AddPoints_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar) && !(e.KeyChar.ToString() == " "))
+            if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar) && !(e.KeyChar.ToString() == " ") && !(e.KeyChar.ToString() == "-"))
                 e.Handled = true;
             if (e.KeyChar.Equals((char)13)) Res.Focus();            
         }

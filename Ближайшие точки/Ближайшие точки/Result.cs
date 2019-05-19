@@ -23,10 +23,13 @@ namespace Ближайшие_точки
             add = znach;
             InitializeComponent();
             WhereFile = add.WhereFile;
-            ListPoint = add.ListPoint;
+            ListPoint = add.NumbersList;
             min = add.min;
             x = add.x;
             y = add.y;
+            minDist.Text = Convert.ToString(min);
+            ResPoints.Text = Convert.ToString(x) + " " + Convert.ToString(y);
+            ResNumbPoints.Text = Convert.ToString(ListPoint.IndexOf(x)+1) + " " + Convert.ToString(ListPoint.IndexOf(y)+1);
         }
 
         private void SavePoints_Click(object sender, EventArgs e)//сохранение введенных точек в файл
